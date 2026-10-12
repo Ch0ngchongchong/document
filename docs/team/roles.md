@@ -32,9 +32,9 @@
 
 | 단계 | 파일 | 정리 담당 | PR 리뷰어 |
 | --- | --- | --- | --- |
-| 0 | `docs/team/roles.md` | 신은총 | 김가은|
-| 1 | `docs/domain/01-first-look-glossary.md` | | |
-| 2 | `docs/domain/02-people-flow-benchmark.md` | | |
+| 0 | `docs/team/roles.md` | 신은총 | 김가은 |
+| 1 | `docs/domain/01-first-look-glossary.md` | 신은총 | 김지운 |
+| 2 | `docs/domain/02-people-flow-benchmark.md` | 신은총 | 권기범 |
 | 3 | `docs/domain/03-rules-states-llm.md` | | |
 | 4 | `docs/decisions/topic-selection.md` | | |
 | 5 | `docs/interview/mvp-assumptions-questions.md` | | |
