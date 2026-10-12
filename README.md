@@ -1,4 +1,4 @@
-# [프로젝트 가제목]
+# 딱 재고
 
 > 이 파일은 저장소의 첫 화면입니다. 처음 온 사람(교사, 클라이언트, 다른 팀)이 1분 안에 "누가 무엇을 만들고, 기록은 어디 있는지" 알 수 있게 **요약과 링크만** 둡니다.
 > 조사 내용은 아래 문서 지도의 각 파일에 씁니다. README에 조사 내용을 옮겨 적지 않습니다.
@@ -8,7 +8,7 @@
 
 | 항목 | 내용 |
 | --- | --- |
-| 팀명 | |
+| 팀명 | 총총총 |
 | 배정받은 큰 도메인 | 소상공인, 이커머스 운영 최적화 서비스 |
 | 세부 주제 (한 줄) | `___(누가)가 ___(무엇)을 할 수 있게 하는 서비스` — 4단계에서 확정한 뒤 씁니다 |
 | 팀원과 역할 | [docs/team/roles.md](docs/team/roles.md) |
@@ -24,7 +24,7 @@
 
 | 단계 | 파일 | 하는 일 | 상태 |
 | --- | --- | --- | --- |
-| 0 | [docs/team/roles.md](docs/team/roles.md) | 팀 구성, 역할, 교대 계획 | ☐ |
+| 0 | [docs/team/roles.md](docs/team/roles.md) | 팀 구성, 역할, 교대 계획 | ☑ |
 | 0 | [docs/domain/README.md](docs/domain/README.md) | 조사 관점, 태그 규칙, 파일 규칙, 찾아볼 곳 | 읽기만 |
 | 1 | [docs/domain/01-first-look-glossary.md](docs/domain/01-first-look-glossary.md) | 첫인상, 용어 사전, 검색어 | ☐ |
 | 2 | [docs/domain/02-people-flow-benchmark.md](docs/domain/02-people-flow-benchmark.md) | 사람, 현재 흐름, 데이터, 기존 서비스, 논문 | ☐ |
