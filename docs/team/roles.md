@@ -34,8 +34,8 @@
 | --- | --- | --- | --- |
 | 0 | `docs/team/roles.md` | 신은총 | 김가은 |
 | 1 | `docs/domain/01-first-look-glossary.md` | 신은총 | 김지운 |
-| 2 | `docs/domain/02-people-flow-benchmark.md` | 신은총 | 권기범 |
-| 3 | `docs/domain/03-rules-states-llm.md` | | |
-| 4 | `docs/decisions/topic-selection.md` | | |
-| 5 | `docs/interview/mvp-assumptions-questions.md` | | |
-| 6 | `docs/proposal/` (제안서 docx·PDF) | | 전원 |
+| 2 | `docs/domain/02-people-flow-benchmark.md` | 진수화 | 권기범 |
+| 3 | `docs/domain/03-rules-states-llm.md` | 김지운 | 신은총 |
+| 4 | `docs/decisions/topic-selection.md` | 권기범 | 김가은 |
+| 5 | `docs/interview/mvp-assumptions-questions.md` | 김가은 | 진수화 |
+| 6 | `docs/proposal/` (제안서 docx·PDF) | 전원 | 전원 |
