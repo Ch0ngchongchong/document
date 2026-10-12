@@ -9,11 +9,11 @@
 
 | 번호 | 규칙 | 예외·경계 사례 (만약 ~라면?) | 어기면 생기는 문제 | 태그 | 출처 (카드 번호) |
 | --- | --- | --- | --- | --- | --- |
-| R1 | | | | | |
-| R2 | | | | | |
-| R3 | | | | | |
-| R4 | | | | | |
-| R5 | | | | | |
+| R1 | 가진 재고보다 많이 출고하려 하면 재고 부족 경고를 보여 준다 | 경고를 무시하고 출고하면? (박스히어로는 이때 재고가 음수가 됨) | 장부와 실제 재고가 맞지 않아 매입 판단이 틀어짐 | [사실] | 4-shusbox-1 |
+| R2 | 재고가 정해 둔 안전재고 이하로 떨어지면 알림을 보낸다 (안전재고 0이면 다 팔렸을 때) | 입고 예정이 잡혀 있어 곧 들어올 상품이라면 '품절'인가 '입고 예정'인가? | 품절을 늦게 알아채서 판매 기회를 놓침 | [사실] | 1-shusbox-2 |
+| R3 | 발주서만 쓴 단계에서는 재고가 바뀌지 않고, 실제로 입고 처리해야 재고에 더해진다 | 주문한 수량보다 적게 오거나 파손된 채로 납품되면? (부분 입고로 검수) | 받지도 않은 물건이 재고로 잡혀 품절을 놓침 | [사실] | https://www.boxhero.io/docs/ko/faq/inventory-and-transactions/orders |
+| R4 | 매입한 물건을 반품하면 반품 수량만큼 재고에서 뺀다 | 검수 전에 불량을 발견해서 입고 없이 바로 돌려보내야 한다면? | 이미 돌려보낸 물건이 재고로 남아 있음 | [사실] | https://www.boxhero.io/docs/ko/faq/inventory-and-transactions/orders |
+| R5 | 경쟁 가게를 밀어내려고 원가보다 크게 낮은 가격으로 계속 팔면 안 된다 (부당염매) | 재고 정리를 위해 잠깐 원가 아래로 파는 건? (낮게 파는 것 자체는 항상 위법은 아님. 목적과 기간이 중요함) | 공정거래법 위반으로 규제받을 수 있음 | [사실] | https://dic.hankyung.com/economy/view/?seq=1035 |
 
 ## 3-2. 핵심 대상과 상태 전이
 
@@ -35,32 +35,37 @@
 **핵심 대상 후보**: (예: 주문)
 
 | 지금 상태 | 다음 상태 | 누가 바꾸나 | 조건 | 되돌릴 수 있나 | 태그 |
-| --- | --- | --- | --- | --- | --- |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
+|-------| --- | --- | --- | --- | --- |
+| 발주 초안 | 발주 확인 완료 | 매장 사장님 | 추천된 상품과 수량을 확인하고 승인한다. | 가능 | [가정] |
+| 발주 확인 완료 | 공급처 전달 완료 | 매장 사장님 또는 시스템 | 발주 내용을 공급처에 전달한다. | 공급처 확인 필요 | [가정] |
+| 공급처 전달 완료 | 입고 대기 | 공급처 또는 시스템 | 공급처가 발주를 접수한다. | 공급처 확인 필요 | [가정] |
+| 입고 대기 | 입고 완료 | 매장 사장님 | 실제 입고된 상품과 수량을 확인하고 재고에 반영한다. | 가능 | [가정] |
 
 > 표를 다 채우면 아래처럼 그림으로도 그립니다. GitHub는 `mermaid` 코드 블록을 그림으로 보여 줍니다. 예시의 상태 이름과 화살표를 우리 내용으로 바꿉니다. 미리 보기는 GitHub의 파일 화면이나 편집 화면의 **Preview** 탭에서 확인합니다.
 
 ```mermaid
 stateDiagram-v2
-    state "결제완료" as paid
-    state "상품준비중" as preparing
-    state "배송지시" as ordered
-    state "배송중" as shipping
-    state "배송완료" as delivered
-    state "취소완료" as canceled
+    state "발주 초안" as Draft
+    state "발주 확인 완료" as Confirmed
+    state "공급처 전달 완료" as Sent
+    state "입고 대기" as Waiting
+    state "입고 완료" as Received
+    state "발주 취소" as Canceled
+    state "발주 취소 요청" as CancelRequested
 
-    [*] --> paid
-    paid --> preparing : 셀러가 주문 확인
-    preparing --> ordered : 송장 번호 입력
-    ordered --> shipping : 택배사 집하
-    shipping --> delivered : 배송 완료 신호
-    paid --> canceled : 고객 취소 요청
-    preparing --> canceled : 셀러 승인 후 취소
-    delivered --> [*]
-    canceled --> [*]
+    [*] --> Draft
+    Draft --> Confirmed : 사장님이 발주 내용 승인
+    Confirmed --> Sent : 공급처에 발주 전달
+    Sent --> Waiting : 공급처가 발주 접수
+    Waiting --> Received : 실제 입고 확인
+
+    Draft --> Canceled : 사장님이 발주 취소
+    Sent --> CancelRequested : 사장님이 취소 요청
+    CancelRequested --> Canceled : 공급처가 취소 승인
+    CancelRequested --> Waiting : 공급처가 취소 거절
+
+    Received --> [*]
+    Canceled --> [*]
 ```
 
 ## 3-3. 시간에 따라 달라지는 규칙
