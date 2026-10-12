@@ -38,8 +38,8 @@
 
 | 관점 | 한국어 검색어 (2개 이상) | 영어 검색어 (2개 이상) | 먼저 찾아볼 곳 |
 | --- | --- | --- | --- |
-| ① 사람·이용 흐름 | | | |
-| ② 규칙·예외 | | | |
-| ③ 데이터·외부 연동 | | | |
-| ④ 기존 서비스·벤치마크 | | | |
-| ⑤ 문제와 손해 | | | |
+| ① 사람·이용 흐름 | 소상공인 디지털 전환, 소상공인 디지털 전환이 매출에 미치는 영향 | Small Business Digital Transformation, Digital Transformation Intention of Small Traders | KCI |
+| ② 규칙·예외 | 소상공인 보호 및 지원에 관한 법률, 전자상거래 등에서의 소비자보호에 관한 법률 | Small Business Legal Compliance, FRAMEWORK ACT ON ELECTRONIC DOCUMENTS AND TRANSACTIONS | 국가법령정보센터 |
+| ③ 데이터·외부 연동 | 소상공인 상가 상권정보 API, 상가업소 위치정보 | Small Business Location Data, Retail Location Data API | 공공데이터포털 |
+| ④ 기존 서비스·벤치마크 | 소상공인 디지털 전환 정책, 소상공인 디지털 전환 | Small Business Digital Transformation Policy, Online Platform for Small Business | KCI |
+| ⑤ 문제와 손해 | 소상공인실태조사, 소상공인 경영 애로 | | KOSIS |
