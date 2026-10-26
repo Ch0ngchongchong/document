@@ -18,12 +18,11 @@
 
 | 이름 | 직접 써 본 언어·도구 | 그걸로 만들어 본 것 (한 줄) | 써 봤지만 어려웠던 것 | 배워 보고 싶은 것 |
 | --- | --- | --- | --- | --- |
-| 신은총 (Kr-Verified) | | | | |
-| 김가은 (revlis09) | | | | |
-| 진수화 (shusbox) | | | | |
-| 권기범 (yosi08) | | | | |
-| 김지운 (kimjiwoon3472) | | | | |
-
+| 신은총 (Kr-Verified) | Spring Boot | 멘토링 플랫폼 백엔드 API 개발 | JPA 영속성 관리 및 복잡한 도메인 설계 | 대규모 트래픽 처리와 분산 시스템 설계 |
+| 김가은 (revlis09) | React | 과학 공부 대시보드 | 백엔드 api 설계 | Swift |
+| 진수화 (shusbox) | React | 퀴즈 웹사이트 |  zustand를 활용한 데이터 관리가 어려웠다| TanStack Query |
+| 권기범 (yosi08) | TypeScript, React, Java | 코넬노트 방식으로 정리하는 웹 사이트 | Java | Swift |
+| 김지운(kimjiwoon3472) | Spring Boot, FastAPI | 스토리 집필 보조 서비스, To-do List, 원소 암기 카드 제공 서비스 | OOP적 기능 구현 | React |
 ## 서비스 쪽 조건
 
 | 항목 | 우리 팀 |
