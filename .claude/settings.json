@@ -3,16 +3,29 @@
     "allow": [
       "Bash(git status)",
       "Bash(git diff *)",
-      "Bash(git log *)"
+      "Bash(git log *)",
+      "Bash(git branch *)",
+      "Bash(git show *)",
+      "Bash(ls *)"
     ],
     "ask": [
       "Edit(./docs/requirements/backlog.md)",
-      "Bash(git push *)"
+      "Edit(./docs/decisions/mvp-scope.md)",
+      "Edit(./docs/STACK.md)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(git switch *)"
     ],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
-      "Edit(./docs/proposal/**)"
+      "Edit(./docs/proposal/**)",
+      "Bash(git push origin main*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(rm -rf *)"
     ]
   }
 }
