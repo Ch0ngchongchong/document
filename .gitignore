@@ -8,8 +8,8 @@ CLAUDE.local.md
 
 # 비밀 값 — 절대 올리지 않음
 .env
-.env.*
-!.env.example
+frontend/.env.example
+!frontend/.env.example
 
 # 운영체제
 .DS_Store
