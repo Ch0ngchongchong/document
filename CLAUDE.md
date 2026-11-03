@@ -32,8 +32,10 @@ API 약속: @docs/API.md
 - UI 도구: Figma
 - 시연·배포: Vercel
 - LLM 호출: FastAPI 백엔드에서 호출한다. 재고 반영은 LLM이 아니라 직원 확정·사장님 승인 뒤 FastAPI가 규칙으로 한다
-  - 실행 명령: (뼈대 이후)
-- 테스트 명령: (뼈대 이후. 테스트 프레임워크 미정, 로컬 `.venv` 가상환경에서 실행)
+  - 설치 명령 (백엔드): `cd backend && python3 -m venv .venv && source .venv/bin/activate && pip install -e ".[dev]"` (2026-11-03 확인, `docs/decisions/scaffold-log.md` 3절)
+  - 실행 명령: Postgres를 먼저 띄운 뒤(예: `docker run -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=ddakjaego -p 5432:5432 -d postgres:16`) `cd backend && source .venv/bin/activate && DATABASE_URL=postgresql+psycopg://<사용자>:<비밀번호>@<호스트>:5432/<DB이름> uvicorn app.main:app --reload` / 화면: `cd frontend && npm install && npm run dev` (2026-11-03 확인)
+- 테스트 명령: pytest로 확정(`backend/pyproject.toml`). `cd backend && source .venv/bin/activate && pytest` — 단, 지금은 `test_products.py` 7개가 전부 `skipped` 상태다 (`scaffold-log.md` 5절, 테스트 클라이언트 연결 필요)
+- 린트 명령: 백엔드 `cd backend && ruff check .` (지금 한글 테스트 함수명 때문에 오류 6개, `scaffold-log.md` 5절), 프론트 `cd frontend && npm run lint` (통과 확인)
 
 ## 도메인에서 지킬 것
 
