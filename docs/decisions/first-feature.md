@@ -46,10 +46,19 @@
 
 **일부러 틀린 구현 시험** (테스트 담당, 서버·화면이 병합되고 테스트가 통과한 뒤)
 
+> 2026-11-23 권기범 실행. 백엔드 `main`(b798961)을 임시 폴더에 복사해 오류를 하나씩 넣고 `pytest tests/test_products.py`를 실행함 (원본 저장소는 고치지 않음). 대조군(오류 없음): `14 passed, 1 skipped`
+
 | 일부러 만든 오류 | 잡아야 하는 완성 기준 # | 실제로 실패한 테스트 | 못 잡았다면 추가한 테스트 |
 | --- | --- | --- | --- |
-| | | | |
-| | | | |
+| 등록: 환산값 검사 `<= 0`을 `< 0`으로 (0 허용) | 3 | `test_us08_nonpositive_conversion_qty_is_rejected[0]` | — |
+| 등록: 중복 코드 검사와 DB 고유 제약을 모두 제거 | 3 | `test_us08_duplicate_code_in_same_store_is_rejected` | — |
+| 등록: 중복 검사를 매장 구분 없이 (다른 매장의 같은 코드도 거절) | 3 | 없음 (못 잡음) | 추가하지 않음 — "매장 안에서" 중복 불가는 DATA-MODEL.md에만 있고 인수 조건 문장에는 범위가 없음. 팀 질문으로 남김 |
+| 목록: 매장 필터 제거 (모든 매장 상품 노출) | 4 | `test_us08_other_store_cannot_view_product` | — |
+| 등록: 저장하지 않고 성공 응답만 | 1 | `test_us08_created_product_appears_in_list` 외 8개 | — |
+| 필수값: 공백만 있는 상품 코드 허용 | 3 | `test_us08_missing_required_value_is_rejected['   ']` | — |
+| 필수값: 빈 상품 코드 검사 전부 제거 | 3 | `test_us08_missing_required_value_is_rejected['']`·`['   ']`, `test_us08_update_cannot_empty_required_value` | — |
+| 등록: 사용자 매장 대신 항상 매장 1에 저장 | 1, 4 | 없음 (못 잡음) | `test_us08_product_created_in_store2_appears_in_store2_list`, `test_us08_store1_cannot_view_product_created_in_store2` (이슈 #139, chongchongchongchong PR #14). 추가 후 같은 오류에서 두 테스트 모두 실패 확인 |
+| 등록: 저장은 맞게 하고 응답 본문만 틀리게 (`name`을 비움) | 1 | 없음 (못 잡음) | 추가하지 않음 — 응답 본문은 API.md 출력에만 있고 인수 조건에는 없음. 팀 질문으로 남김 |
 
 ## 4. 오늘 못 끝낸 것 (과제)
 
